@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Item Detail</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+</head>
+<body>
+  {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Item Detail</h1>
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items %}
+              <tr>
+                <!-- <th scope="row">{{ item.pk }}</th> -->
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.author }}</td>
+                <td>{{ item.isbn }}</td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <!-- <a class="btn btn-primary" href="{% url 'item_edit' pk=item.pk %}"><i class="fas fa-pencil-alt"></i>Edit Item</a> -->
+                    <a class="btn btn-primary" href="{% url 'item_edit' pk=item.pk %}"> Edit Item</a>
+                    <a class="btn btn-danger ml-2" href="{% url 'item_delete' pk=item.pk %}">Delete Item</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <a class="btn btn-primary" href="{% url 'item_list' %}">Back to Item List</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional, but required for certain Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    <a class="nav-link text-white" href="{% url 'item_new' %}">Add Item</a>
+                    <a class="nav-link text-white" href="{% if items %}{% url 'item_detail' pk=items.0.pk %}{% endif %}">List</a>
+                </div>
+            </div>
+    
+            <!-- New div for login and registration buttons -->
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+                <a class="nav-link text-white" href="{% url 'register' %}">Register</a>
+            
+          </div>
+        </div>
+    </nav>
+    <!-- {% if messages %}
+      <div class="container mt-4">
+        {% for message in messages %}
+        <div
+          class="alert alert-{{ message.tags }} alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %} -->
+
+      <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+  
+  (function () {
+
+      function showSuccessToast() {
+          Toastify({
+              text: 'Successfully Registered',
+              duration: 3000,
+              gravity: 'bottom',
+              position: 'right',
+              close: true,
+              backgroundColor: '#28a745',
+          }).showToast();
+      }
+  })();
+</script>
+</body>
+</html>
